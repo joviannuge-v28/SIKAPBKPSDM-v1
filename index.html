@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIKAP — Beranda | BKPSDM Kota Dumai</title>
+<link rel="icon" type="image/jpeg" href="/uploads/logo-bkpsdm.jpg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SIKAP — Beranda | BKPSDM Kota Dumai">
+<meta property="og:description" content="Sistem Informasi Kepegawaian dan Administrasi Pegawai — melayani Aparatur Sipil Negara di lingkungan Pemerintah Kota Dumai secara transparan dan akuntabel.">
+<meta property="og:image" content="/uploads/logo-bkpsdm.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --ink:#1B365D;
+    --teal-deep:#122846;
+    --teal:#27528A;
+    --teal-soft:#3B6CA8;
+    --gold:#EAA900;
+    --gold-light:#FFC82E;
+    --paper:#F4F6F9;
+    --paper-dark:#E2E8F0;
+    --cream:#FFFFFF;
+    --charcoal:#1E293B;
+    --line: rgba(27,54,93,0.12);
+    --shadow: 0 20px 50px -25px rgba(27,54,93,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* Skeleton Loading Effect */
+  .skeleton {
+    background: linear-gradient(90deg, #E2E8F0 25%, #F1F5F9 50%, #E2E8F0 75%);
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.4s infinite;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  @keyframes skeletonShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:12px;
+    color:var(--teal-soft);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--gold); display:inline-block;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ===== NAV ===== */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:var(--ink);
+    border-bottom:1px solid rgba(232,196,104,0.18);
+  }
+  .nav{
+    max-width:1180px; margin:0 auto; padding:0 32px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .seal, .admin-seal{
+    width:42px; height:42px; border-radius:50%;
+    background:#ffffff; display:flex; align-items:center; justify-content:center;
+    border:1.5px solid var(--gold-light); overflow:hidden; flex-shrink:0;
+  }
+  .seal img, .admin-seal img{
+    width:100%; height:100%; object-fit:contain; display:block;
+  }
+  .brand .name{color:var(--cream);}
+  .brand .name b{display:flex; align-items:baseline; gap:6px; font-family:'Fraunces',serif; font-size:16.5px; letter-spacing:0.01em;}
+  .brand .name b small{font-size:11px; font-weight:500; font-family:'Plus Jakarta Sans',sans-serif; color:rgba(248,244,233,0.85); text-transform:none; letter-spacing:0;}
+  .brand .name span{display:block; font-size:11px; color:var(--gold-light); letter-spacing:0.05em; margin-top:2px; font-family:'IBM Plex Mono',monospace;}
+  nav.links{display:flex; align-items:center; gap:28px;}
+  nav.links a{
+    color:rgba(248,244,233,0.9); font-size:18px; font-weight:700;
+    position:relative; padding:4px 0; letter-spacing:0.01em;
+  }
+  nav.links a:hover{color:var(--cream);}
+  nav.links a.active{color:var(--gold-light);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:3px;
+    font-size:14px; font-weight:600; cursor:pointer; border:none;
+    font-family:'Plus Jakarta Sans', sans-serif;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-gold{background:linear-gradient(180deg, var(--gold-light), var(--gold)); color:var(--ink);}
+  .btn-gold:hover{transform:translateY(-1px); box-shadow:0 10px 22px -10px rgba(201,162,39,0.7);}
+  .btn-ghost{background:transparent; border:1px solid rgba(248,244,233,0.35); color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--gold-light); color:var(--gold-light);}
+  .btn-outline-ink{background:transparent; border:1.4px solid var(--ink); color:var(--ink);}
+  .btn-outline-ink:hover{background:var(--ink); color:var(--cream);}
+
+  /* ===== HERO SLIDER ===== */
+  .hero-bg{
+    position:absolute; inset:0; overflow:hidden; z-index:0;
+  }
+  .hero-slide{
+    position:absolute; inset:0;
+    opacity:0; transition:opacity 1.1s ease;
+    background-size:cover; background-position:center;
+  }
+  .hero-slide::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(95deg, rgba(10,25,45,0.4) 0%, rgba(10,25,45,0.2) 50%, transparent 100%);
+  }
+  .hero-slide.active{opacity:1; z-index:1;}
+  .hero-slide.active .hero-slide-art{animation:kenburns 7s ease-out forwards;}
+  .hero-slide.active .hero-slide-art.has-custom-bg{animation:none !important;}
+  .hero-slide-art.has-custom-bg{inset:0 !important;}
+  @keyframes kenburns{
+    0%{transform:scale(1.08) translate(0,0);}
+    100%{transform:scale(1.16) translate(-1.5%,-1%);}
+  }
+  .hero-slide-art{
+    position:absolute; inset:-6%;
+    background-repeat:no-repeat;
+  }
+  .slide-art-1{background:
+    radial-gradient(420px 420px at 88% 18%, rgba(255,200,46,0.35), transparent 70%),
+    radial-gradient(600px 600px at 70% 85%, rgba(59,108,168,0.55), transparent 70%),
+    linear-gradient(160deg, #122846, #1B365D 70%);}
+  .slide-art-2{background:
+    radial-gradient(500px 500px at 82% 75%, rgba(234,169,0,0.3), transparent 70%),
+    radial-gradient(500px 500px at 20% 15%, rgba(39,82,138,0.6), transparent 70%),
+    linear-gradient(200deg, #1B365D, #163259 60%);}
+  .slide-art-3{background:
+    radial-gradient(460px 460px at 25% 80%, rgba(255,200,46,0.28), transparent 70%),
+    radial-gradient(520px 520px at 85% 25%, rgba(59,108,168,0.5), transparent 70%),
+    linear-gradient(140deg, #122846, #0D1D34 65%);}
+  .slide-art-4{background:
+    radial-gradient(480px 480px at 78% 82%, rgba(234,169,0,0.3), transparent 70%),
+    radial-gradient(480px 480px at 15% 20%, rgba(39,82,138,0.55), transparent 70%),
+    linear-gradient(170deg, #1B365D, #122846 70%);}
+  .hero-icon-mark{
+    position:absolute; right:6%; top:50%; transform:translateY(-50%);
+    font-size:280px; color:rgba(248,244,233,0.05); z-index:0;
+  }
+  .hero-slide-content{
+    transition:opacity .5s ease, transform .5s ease;
+    background:transparent;
+    border:none;
+    padding:0;
+    box-shadow:none;
+    max-width:640px;
+  }
+  .hero-slide-content.switching{opacity:0; transform:translateY(8px);}
+  .hero-dots{
+    position:relative; z-index:2; display:flex; gap:8px; margin-top:20px;
+  }
+  .hero-dots button{
+    width:26px; height:4px; border-radius:2px; border:none; padding:0;
+    background:rgba(248,244,233,0.28); cursor:pointer; transition:background .2s ease, width .2s ease;
+  }
+  .hero-dots button.active{background:var(--gold-light); width:38px;}
+  .hero-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:42px; height:42px; border-radius:50%;
+    background:rgba(248,244,233,0.08); border:1px solid rgba(248,244,233,0.25);
+    color:var(--cream); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:background .2s ease, border-color .2s ease;
+  }
+  .hero-arrow:hover{background:rgba(232,196,104,0.18); border-color:var(--gold-light); color:var(--gold-light);}
+  .hero-arrow.prev{left:24px;}
+  .hero-arrow.next{right:24px;}
+  @media (max-width:980px){
+    .brand-sub{display:none !important;}
+    .hero-arrow{display:none;}
+    .hero-grid{margin-left:0;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:var(--ink);
+    color:var(--cream);
+    padding:0;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    height:600px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background-image: linear-gradient(rgba(248,244,233,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(248,244,233,0.035) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image: linear-gradient(180deg, black, transparent 75%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative; z-index:1;
+    max-width:680px; margin-left:64px;
+    text-align:left; display:flex; flex-direction:column; align-items:flex-start;
+  }
+  .hero .eyebrow{
+    color:#FFD93D; font-size:12px; font-weight:700; letter-spacing:0.12em;
+    margin:0 0 12px 0; justify-content:flex-start; display:flex; align-items:center; gap:10px;
+    text-shadow:
+      0 0 6px rgba(255,210,0,0.98),
+      0 0 16px rgba(255,200,46,0.85),
+      0 0 32px rgba(255,185,0,0.6),
+      0 2px 6px rgba(0,0,0,0.85);
+  }
+  .hero .eyebrow::before{
+    content:''; width:24px; height:2px; background:#FFD93D; display:inline-block; border-radius:2px;
+    box-shadow:
+      0 0 6px rgba(255,210,0,0.98),
+      0 0 16px rgba(255,200,46,0.85),
+      0 0 32px rgba(255,185,0,0.6);
+  }
+  .hero h1{
+    font-size:34px; line-height:1.3; color:#FFFFFF; max-width:620px;
+    margin:0 0 14px 0; text-align:left; font-weight:700;
+    text-shadow:0 4px 12px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8);
+  }
+  .hero h1 em{
+    font-style:italic; color:#FFD93D; font-weight:800;
+    text-shadow:
+      0 0 8px rgba(255,210,0,0.95),
+      0 0 20px rgba(255,200,46,0.85),
+      0 0 40px rgba(255,185,0,0.6),
+      0 3px 10px rgba(0,0,0,0.9),
+      0 1px 3px rgba(0,0,0,0.8);
+  }
+  .hero p.lead{
+    margin:0 0 20px 0; font-size:15px; line-height:1.75; font-weight:700;
+    color:#FFFFFF; max-width:580px; text-align:left;
+    letter-spacing:0.015em;
+    text-shadow:
+      0 2px 12px rgba(0,0,0,0.98),
+      0 1px 4px rgba(0,0,0,0.95),
+      0 0 2px rgba(0,0,0,1);
+  }
+  .search-box{
+    display:flex; align-items:center; gap:10px;
+    background:rgba(248,244,233,0.07);
+    border:1px solid rgba(248,244,233,0.22);
+    border-radius:4px; padding:12px 16px; width:100%; max-width:480px;
+    margin-bottom:20px;
+  }
+  .search-box i{color:var(--gold-light);}
+  .search-box input{
+    background:transparent; border:none; outline:none; color:var(--cream);
+    font-family:'Plus Jakarta Sans',sans-serif; font-size:14px; width:100%;
+  }
+  .search-box input::placeholder{color:rgba(248,244,233,0.45);}
+  .search-box button{
+    background:var(--gold); color:var(--ink); border:none; border-radius:3px;
+    padding:8px 16px; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap;
+  }
+  .hero-bottom-controls{
+    position:absolute;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    pointer-events:none;
+    width:auto;
+    max-width:90%;
+  }
+  .hero-bottom-controls > *{
+    pointer-events:auto;
+  }
+  .visitor-counter{
+    display:inline-flex; align-items:center; gap:12px; margin:0;
+    background:linear-gradient(135deg, rgba(16,35,65,0.92), rgba(10,22,42,0.95));
+    border:1.8px solid #FFD93D;
+    backdrop-filter:blur(12px);
+    border-radius:30px; padding:9px 24px; font-size:14px; color:#FFFFFF; font-weight:700;
+    box-shadow:
+      0 0 20px rgba(255,217,61,0.45),
+      0 8px 24px rgba(0,0,0,0.6),
+      inset 0 0 14px rgba(255,217,61,0.25);
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing:0.02em;
+    text-shadow:0 1px 4px rgba(0,0,0,0.9);
+  }
+  .visitor-counter:hover{
+    transform:translateY(-2px);
+    box-shadow:
+      0 0 30px rgba(255,217,61,0.65),
+      0 12px 30px rgba(0,0,0,0.7),
+      inset 0 0 18px rgba(255,217,61,0.35);
+  }
+  .visitor-counter i{
+    color:#FFD93D; font-size:17px;
+    filter:drop-shadow(0 0 8px rgba(255,217,61,0.95));
+    animation:eyeGlowPulse 2.2s infinite ease-in-out;
+  }
+  @keyframes eyeGlowPulse{
+    0%, 100%{ transform:scale(1); filter:drop-shadow(0 0 8px rgba(255,217,61,0.95)); }
+    50%{ transform:scale(1.18); filter:drop-shadow(0 0 16px rgba(255,217,61,1)); }
+  }
+  .visitor-counter strong{
+    color:#FFD93D; font-weight:800; font-size:18px; letter-spacing:0.04em;
+    font-family:'IBM Plex Mono',monospace;
+    text-shadow:
+      0 0 10px rgba(255,217,61,0.95),
+      0 0 22px rgba(255,195,0,0.85),
+      0 2px 5px rgba(0,0,0,0.9);
+  }
+  .hero-dots{justify-content:center; margin-top:0;}
+
+
+
+
+
+  /* ===== SECTION GENERIC ===== */
+  section{padding:88px 0;}
+  .sec-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+    margin-bottom:44px; flex-wrap:wrap;
+  }
+  .sec-head h2{font-size:38px; font-weight:700; color:var(--ink); margin-top:10px; max-width:520px; line-height:1.2;}
+  .sec-head p{color:#334155; font-size:16.5px; font-weight:500; max-width:420px; line-height:1.65;}
+
+  /* Pengumuman */
+  .announce-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .a-card{
+    background:#ffffff; border:1.5px solid #d1d5db; border-radius:10px;
+    padding:18px; display:flex; flex-direction:column; gap:14px;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    box-shadow:0 4px 14px rgba(0,0,0,0.05); overflow:hidden;
+  }
+  .a-card:hover{transform:translateY(-5px); box-shadow:0 14px 28px -6px rgba(27,54,93,0.18); border-color:var(--teal);}
+  
+  /* DOCUMENT PHOTO THUMBNAIL */
+
+  .a-card-thumb-wrap {
+    width: 100%;
+    height: 200px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .a-card-thumb-img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .a-card:hover .a-card-thumb-img {
+    transform: scale(1.03);
+  }
+
+  .a-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 4px 4px 0;
+    flex: 1;
+  }
+  .a-card-date {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #475569;
+    margin-bottom: 2px;
+  }
+  .a-card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    line-height: 1.32;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+  .a-card-title:hover {
+    color: #2563eb;
+  }
+  .a-card-nosurat {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+  .a-card-readmore {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    background: rgba(39, 82, 138, 0.08);
+    border: 1px solid rgba(39, 82, 138, 0.16);
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+  }
+  .a-card-readmore:hover {
+    background: var(--teal);
+    color: #ffffff;
+    border-color: var(--teal);
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(39, 82, 138, 0.22);
+    text-decoration: none;
+  }
+  .a-card-readmore i {
+    font-size: 11px;
+    transition: transform 0.2s ease;
+  }
+  .a-card-readmore:hover i {
+    transform: translateX(3px);
+  }
+
+  .a-top{display:flex; justify-content:space-between; align-items:center;}
+  .a-cat{
+    font-family:'Plus Jakarta Sans',sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;
+    padding:4px 10px; border-radius:4px; background:rgba(27,54,93,0.08); color:var(--teal-deep);
+  }
+  .a-cat.urgent{background:#dc2626; color:#ffffff; font-weight:800; padding:4px 10px; box-shadow:0 2px 6px rgba(220,38,38,0.3); display:inline-flex; align-items:center; gap:6px;}
+  .a-cat.urgent::before{content:'\f0f3'; font-family:'Font Awesome 6 Free'; font-weight:900; font-size:10px;}
+  .a-card.is-urgent{border-color:rgba(220,38,38,0.5);}
+  .a-card.is-urgent:hover{border-color:#dc2626;}
+
+  /* Layanan */
+  .layanan-band{background:var(--ink); color:var(--cream);}
+  .layanan-band .sec-head h2{color:#ffffff; font-size:38px; font-weight:700;}
+  .layanan-band .sec-head p{color:rgba(255,255,255,0.92); font-size:16.5px; font-weight:500;}
+  .layanan-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; background:transparent; border:none; border-radius:8px; overflow:visible;}
+  .l-card{
+    background:rgba(18,40,70,0.85); border:1.5px solid rgba(248,244,233,0.22); border-radius:8px;
+    padding:28px 24px 26px; min-height:190px;
+    display:flex; flex-direction:column; gap:14px; position:relative;
+    transition:all .18s ease;
+  }
+  .l-card:hover{background:#143057; border-color:var(--gold-light); transform:translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,0.3);}
+  .l-top{display:flex; align-items:center; justify-content:space-between;}
+  .l-icon{
+    width:52px; height:52px; border-radius:12px; background:rgba(232,196,104,0.16);
+    border:1.5px solid rgba(232,196,104,0.35);
+    display:flex; align-items:center; justify-content:center; color:#F8D153; font-size:22px;
+  }
+  .l-no{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:rgba(255,255,255,0.5); font-weight:600;}
+  .l-card h3{color:#ffffff; font-size:19.5px; font-weight:700; font-family:'Fraunces',serif; margin-top:4px;}
+  .l-card p{font-size:14.5px; color:rgba(255,255,255,0.88); line-height:1.6; margin:0; font-weight:400;}
+
+  /* Alur */
+  .flow{display:grid; grid-template-columns:repeat(4,1fr); gap:0; row-gap:36px; position:relative;}
+  .f-step{position:relative; padding:0 18px 0 0;}
+  .f-step::after{
+    content:''; position:absolute; top:23px; left:46px; right:0; height:1px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 8px, transparent 8px 16px);
+  }
+  .f-step:nth-child(4n)::after,
+  .f-step:last-child::after{ display:none; }
+  .f-num{
+    width:46px; height:46px; border-radius:50%; background:var(--paper); border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace;
+    font-weight:600; color:var(--ink); font-size:15px; position:relative; z-index:1; margin-bottom:18px;
+  }
+  .f-step h3{font-size:15.5px; margin-bottom:8px;}
+  .f-step p{font-size:13px; color:#5b6a63; line-height:1.6; margin:0;}
+
+  /* Footer */
+  footer{background:var(--teal-deep); color:rgba(248,244,233,0.75); padding:64px 0 26px;}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px; padding-bottom:44px; border-bottom:1px solid rgba(248,244,233,0.12);}
+  .foot-brand .brand{margin-bottom:16px;}
+  .foot-brand p{font-size:13.5px; line-height:1.7; color:rgba(248,244,233,0.55); max-width:280px;}
+  .foot-col h4{font-family:'IBM Plex Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-light); margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; font-size:13.5px; color:rgba(248,244,233,0.65); margin-bottom:11px; line-height:1.6;}
+  .foot-col a:hover{color:var(--gold-light);}
+  .social{display:flex; gap:10px; margin-top:18px;}
+  .social a{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(248,244,233,0.25);
+    display:flex; align-items:center; justify-content:center; font-size:13px;
+  }
+  .social a:hover{border-color:var(--gold-light); color:var(--gold-light);}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:22px; font-size:12px; color:rgba(248,244,233,0.42); flex-wrap:wrap; gap:10px;}
+
+  .hamburger{
+    display:none; width:38px; height:38px; border-radius:4px;
+    background:transparent; border:1px solid rgba(248,244,233,0.3);
+    align-items:center; justify-content:center; color:var(--cream); cursor:pointer;
+    font-size:16px;
+  }
+  .mobile-panel{
+    display:none;
+    background:var(--ink); border-top:1px solid rgba(232,196,104,0.18);
+    padding:8px 0 18px;
+  }
+  .mobile-panel.open{display:block;}
+  .mobile-panel a{
+    display:block; padding:13px 32px; color:rgba(248,244,233,0.9);
+    font-size:18px; font-weight:700; border-bottom:1px solid rgba(248,244,233,0.06);
+  }
+  .mobile-panel a.active{color:var(--gold-light);}
+
+  @media (max-width:980px){
+    .brand-sub{display:none !important;}
+    .hero{ height:350px; }
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{ font-size:24px; line-height:1.25; margin-bottom:10px; }
+    .hero p.lead{ font-size:13px; line-height:1.55; margin-bottom:14px; }
+    .hero .eyebrow{ font-size:10px; margin-bottom:10px; }
+    .hero-bottom-controls{ bottom:14px; gap:8px; }
+    .visitor-counter{ font-size:11.5px; padding:6px 12px; margin-bottom:0; }
+    .hero-dots button{ width:18px; height:3px; }
+    .hero-dots button.active{ width:28px; }
+    .hero-dots{ margin-top:0; gap:6px; }
+    nav.links{display:none;}
+    .hamburger{display:flex;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .announce-grid{grid-template-columns:1fr;}
+    .layanan-grid{grid-template-columns:repeat(2,1fr);}
+    .flow{grid-template-columns:1fr; gap:28px;}
+    .f-step::after{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (min-width:981px){
+    .mobile-panel{display:none !important;}
+  }
+  /* ===== PAGE HEADER (non-home pages) ===== */
+  .page-header{
+    background:
+      radial-gradient(900px 400px at 85% -20%, rgba(201,162,39,0.14), transparent 60%),
+      linear-gradient(180deg, var(--ink), var(--teal-deep));
+    color:var(--cream); padding:52px 0 40px; position:relative; overflow:hidden;
+  }
+  .page-header::after{
+    content:''; position:absolute; inset:0;
+    background-image: linear-gradient(rgba(248,244,233,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(248,244,233,0.035) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image: linear-gradient(180deg, black, transparent 85%);
+    pointer-events:none;
+  }
+  .breadcrumb{
+    position:relative; z-index:1;
+    display:flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    color:rgba(248,244,233,0.55); margin-bottom:14px;
+  }
+  .breadcrumb a{color:rgba(248,244,233,0.75);}
+  .breadcrumb a:hover{color:var(--gold-light);}
+  .page-header h1{position:relative; z-index:1; color:var(--cream); font-size:34px;}
+  .page-header p{position:relative; z-index:1; color:rgba(248,244,233,0.68); font-size:14.5px; margin-top:10px; max-width:560px; line-height:1.6;}
+
+  /* ===== FILTER PILLS (Pengumuman) ===== */
+  .filter-bar{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:36px;}
+  .filter-pill{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.05em;
+    padding:9px 16px; border-radius:20px; border:1px solid var(--line); background:var(--cream);
+    color:#5b6a63; cursor:pointer; transition:all .15s ease;
+  }
+  .filter-pill:hover{border-color:var(--teal-soft); color:var(--teal);}
+  .filter-pill.active{background:var(--ink); border-color:var(--ink); color:var(--cream);}
+  .a-card{display:flex;}
+  .a-card.hidden{display:none;}
+
+  /* ===== PAGINATION ===== */
+  .pagination{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:40px;}
+  .pagination button{
+    width:38px; height:38px; border-radius:4px; border:1px solid var(--line); background:var(--cream);
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:#5b6a63; cursor:pointer;
+  }
+  .pagination button.active{background:var(--ink); border-color:var(--ink); color:var(--cream);}
+  .pagination button:hover:not(.active){border-color:var(--gold);}
+  .pagination .pg-arrow{width:auto; padding:0 14px; display:flex; align-items:center; gap:6px;}
+
+  /* ===== SECTION LINK-OUT CARD (preview → full page) ===== */
+  .preview-foot{display:flex; justify-content:center; margin-top:40px;}
+  .layanan-band .preview-foot{margin-top:0; padding-top:36px;}
+
+  /* ===== FAQ ACCORDION ===== */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:22px 4px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:16.5px; color:var(--ink);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .faq-icon{
+    width:26px; height:26px; border-radius:50%; border:1.4px solid var(--teal); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform .2s ease;
+  }
+  .faq-item[open] summary .faq-icon{transform:rotate(45deg); background:var(--teal); color:var(--cream);}
+  .faq-item p{padding:0 4px 22px; color:#5b6a63; font-size:14.5px; line-height:1.7; margin:0; max-width:720px;}
+
+  /* ===== CONTACT PAGE ===== */
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:start;}
+  .contact-cards{display:flex; flex-direction:column; gap:16px;}
+  .c-card{
+    background:var(--cream); border:1px solid var(--line); border-radius:6px; padding:22px;
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .c-card .c-icon{
+    width:44px; height:44px; border-radius:8px; background:rgba(27,94,99,0.09); color:var(--teal);
+    display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0;
+  }
+  .c-card h4{font-size:14.5px; margin-bottom:4px;}
+  .c-card p{font-size:13.5px; color:#5b6a63; line-height:1.6; margin:0;}
+  .map-box{
+    margin-top:16px; border-radius:6px; border:1px solid var(--line); overflow:hidden;
+    background:
+      repeating-linear-gradient(45deg, rgba(11,46,51,0.04) 0 2px, transparent 2px 14px),
+      var(--paper-dark);
+    min-height:200px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; color:var(--teal); text-align:center; padding:20px;
+  }
+  .map-box i{font-size:26px;}
+  .map-box span{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5b6a63;}
+  .form-card{background:var(--cream); border:1px solid var(--line); border-radius:8px; padding:32px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .form-field{display:flex; flex-direction:column; gap:7px; margin-bottom:16px;}
+  .form-field label{font-size:12.5px; font-weight:600; color:var(--ink);}
+  .form-field input, .form-field select, .form-field textarea{
+    border:1px solid var(--line); border-radius:4px; padding:11px 13px; font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:14px; color:var(--charcoal); background:#fff; outline:none; resize:vertical;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{border-color:var(--teal-soft);}
+  .form-note{font-size:12px; color:#8a978f; margin-top:10px;}
+
+  @media (max-width:980px){
+    .brand-sub{display:none !important;}
+    .contact-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="index.html" class="brand" style="cursor:pointer;">
+      <div class="seal"><img src="/uploads/logo-bkpsdm.jpg" alt="Logo BKPSDM"></div>
+      <div class="name">
+        <b>SIKAP <small class="brand-sub">(Sistem Informasi Kepegawaian dan Administrasi Pegawai)</small></b>
+        <span>BKPSDM KOTA DUMAI</span>
+      </div>
+    </a>
+    <nav class="links">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="pengumuman.html">Pengumuman</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="aplikasi.html">Aplikasi</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu" aria-expanded="false">
+        <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="index.html" class="active">Beranda</a>
+    <a href="profil.html">Profil</a>
+    <a href="pengumuman.html">Pengumuman</a>
+    <a href="kegiatan.html">Kegiatan</a>
+    <a href="layanan.html">Layanan</a>
+    <a href="aplikasi.html">Aplikasi</a>
+  </div>
+</header>
+
+<section class="hero" id="beranda">
+  <div class="hero-bg" id="heroBg">
+    <!-- Slides dibangun dinamis oleh JS dari data admin (localStorage) -->
+  </div>
+
+  <button class="hero-arrow prev" id="heroPrev" aria-label="Slide sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="hero-arrow next" id="heroNext" aria-label="Slide berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-slide-content" id="heroContent">
+        <div class="eyebrow" id="heroEyebrow" style="display:none;"></div>
+        <h1 style="margin-top:16px;display:none;" id="heroTitle"></h1>
+        <p class="lead" style="display:none;" id="heroLead"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom-controls">
+    <div class="hero-dots" id="heroDots">
+      <!-- Dots dibangun dinamis oleh JS -->
+    </div>
+
+    <div class="visitor-counter">
+      <i class="fa-solid fa-eye"></i>
+      <span>Total Pengunjung Website</span>
+      <strong id="visitorCount" class="mono">0</strong>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="pengumuman">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">INFORMASI TERKINI</div>
+        <h2>Pengumuman terbaru</h2>
+      </div>
+      <p>Seluruh pengumuman resmi kepegawaian, terverifikasi langsung oleh BKPSDM Kota Dumai dan diperbarui setiap hari kerja.</p>
+    </div>
+    <div class="announce-grid" id="homeAnnounceGrid">
+      <div class="a-card" style="min-height:180px;"><div class="skeleton" style="height:22px;width:35%;margin-bottom:12px;"></div><div class="skeleton" style="height:32px;width:90%;margin-bottom:12px;"></div><div class="skeleton" style="height:48px;width:100%;"></div></div>
+      <div class="a-card" style="min-height:180px;"><div class="skeleton" style="height:22px;width:35%;margin-bottom:12px;"></div><div class="skeleton" style="height:32px;width:90%;margin-bottom:12px;"></div><div class="skeleton" style="height:48px;width:100%;"></div></div>
+      <div class="a-card" style="min-height:180px;"><div class="skeleton" style="height:22px;width:35%;margin-bottom:12px;"></div><div class="skeleton" style="height:32px;width:90%;margin-bottom:12px;"></div><div class="skeleton" style="height:48px;width:100%;"></div></div>
+    </div>
+    <div class="preview-foot">
+      <a href="pengumuman.html" class="btn btn-outline-ink"><i class="fa-solid fa-list"></i> Lihat Semua Pengumuman</a>
+    </div>
+  </div>
+</section>
+
+<section class="layanan-band" id="layanan">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">LAYANAN MANDIRI</div>
+        <h2>Layanan kepegawaian di kantor</h2>
+      </div>
+      <p>Pelajari persyaratan dan persiapkan berkas sebelum datang ke loket pelayanan kantor BKPSDM Kota Dumai.</p>
+    </div>
+    <div class="layanan-grid">
+      <div class="l-card"><div class="l-top"><div class="l-icon"><i class="fa-solid fa-plane-departure"></i></div><span class="l-no">01</span></div><h3>Cuti ASN</h3><p>Pengajuan cuti tahunan, sakit, dan cuti besar melalui loket kantor BKPSDM.</p></div>
+      <div class="l-card"><div class="l-top"><div class="l-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><span class="l-no">02</span></div><h3>Kenaikan Pangkat</h3><p>Usulan berkas kenaikan pangkat reguler maupun pilihan.</p></div>
+      <div class="l-card"><div class="l-top"><div class="l-icon"><i class="fa-solid fa-right-left"></i></div><span class="l-no">03</span></div><h3>Mutasi & Pindah Tugas</h3><p>Permohonan perpindahan unit kerja antar perangkat daerah.</p></div>
+      <div class="l-card"><div class="l-top"><div class="l-icon"><i class="fa-solid fa-id-card"></i></div><span class="l-no">04</span></div><h3>Karpeg & Karis/Karsu</h3><p>Penerbitan kartu pegawai dan kartu suami/istri.</p></div>
+    </div>
+    <div class="preview-foot" style="margin-top:36px;">
+      <a href="layanan.html" class="btn btn-gold"><i class="fa-solid fa-grip"></i> Lihat Semua Layanan (8)</a>
+    </div>
+  </div>
+</section>
+
+
+
+<footer id="kontak-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <div class="seal"><img src="/uploads/logo-bkpsdm.jpg" alt="Logo BKPSDM"></div>
+          <div class="name"><b>SIKAP</b><span>Sistem Informasi Kepegawaian dan Administrasi Pegawai Kota Dumai</span></div>
+        </div>
+        <p>Sistem Informasi Pengumuman dan Layanan Kepegawaian — melayani Aparatur Sipil Negara di lingkungan Pemerintah Kota Dumai secara transparan dan akuntabel.</p>
+        <div class="social">
+          <a id="f-fb" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a id="f-ig" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a id="f-yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+        <div class="foot-col">
+          <h4>Kantor</h4>
+          <p id="f-alamat">Jl. Tuanku Tambusai, Bagan Besar, Kec. Bukit Kapur, Kota Dumai, Riau 28825</p>
+          <p id="f-jam" style="margin-bottom:10px;">Senin–Jumat, 08.00–16.00 WIB</p>
+          <div style="width:100%;max-width:240px;height:110px;border-radius:8px;overflow:hidden;border:1px solid rgba(248,244,233,0.18);box-shadow:0 4px 12px rgba(0,0,0,0.25);margin-top:8px;">
+            <iframe
+              id="footerMap"
+              src="https://maps.google.com/maps?q=BKPSDM+Kota+Dumai+Jl+Tuanku+Tambusai+Bagan+Besar+Dumai&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style="border:0;display:block;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Peta Lokasi Kantor BKPSDM Kota Dumai">
+            </iframe>
+          </div>
+        </div>
+        <div class="foot-col">
+          <h4>Kontak</h4>
+          <a id="f-telp" href="tel:0765123000"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>(0765) 123-000</a>
+          <a id="f-email" href="mailto:bkpsdm@dumaikota.go.id"><i class="fa-solid fa-envelope" style="margin-right:8px;"></i>bkpsdm@dumaikota.go.id</a>
+        </div>
+      <div class="foot-col">
+        <h4>Tautan</h4>
+        <a href="pengumuman.html">Pengumuman</a>
+        <a href="kegiatan.html">Kegiatan</a>
+        <a href="layanan.html">Layanan Kepegawaian</a>
+        <a href="aplikasi.html">Aplikasi ASN</a>
+        <a href="staf.html">Direktori Staf <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:9px; margin-left:3px;"></i></a>
+        <a href="admin.html">Admin <i class="fa-solid fa-shield-halved" style="font-size:10px; margin-left:3px;"></i></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BKPSDM Kota Dumai. Seluruh hak dilindungi.</span>
+      <span>Dibangun untuk mendukung tata kelola ASN yang transparan</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const hamburgerIcon = document.getElementById('hamburgerIcon');
+  const mobilePanel = document.getElementById('mobilePanel');
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobilePanel.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    hamburgerIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  mobilePanel.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobilePanel.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', false);
+      hamburgerIcon.className = 'fa-solid fa-bars';
+    });
+  });
+
+  const DEFAULT_STEPS = [
+    { num:'01', title:'Cek Syarat & Formulir', desc:'Pelajari persyaratan layanan dan unduh formulir permohonan melalui website SIKAP.' },
+    { num:'02', title:'Lengkapi Berkas Fisik', desc:'Cetak dan isi formulir serta lengkapi seluruh dokumen persyaratan fisik yang dibutuhkan.' },
+    { num:'03', title:'Serahkan ke Loket BKPSDM', desc:'Datang langsung ke kantor BKPSDM Kota Dumai untuk verifikasi dan penyerahan berkas.' },
+    { num:'04', title:'Pengambilan Dokumen / SK', desc:'Ambil Surat Keputusan (SK) atau dokumen resmi langsung di loket layanan setelah diproses.' }
+  ];
+
+  function renderAlurSteps(steps) {
+    const container = document.getElementById('flowStepsContainer');
+    if (!container) return;
+    container.innerHTML = steps.map(step => `
+      <div class="f-step">
+        <div class="f-num">${step.num}</div>
+        <h3>${step.title}</h3>
+        <p>${step.desc}</p>
+      </div>
+    `).join('');
+  }
+
+  const API_BASE = (location.protocol === 'file:' || (location.port && location.port !== '3000')) 
+    ? 'http://localhost:3000' 
+    : '';
+
+  function fetchAlur() {
+    fetch(API_BASE + '/api/alur')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.steps && data.steps.length) {
+          renderAlurSteps(data.steps);
+        } else {
+          renderAlurSteps(DEFAULT_STEPS);
+        }
+      })
+      .catch(err => {
+        console.error("Error loading alur data:", err);
+        renderAlurSteps(DEFAULT_STEPS);
+      });
+  }
+  fetchAlur();
+  // ===== Pengumuman Terbaru di Beranda — dari API Backend =====
+  (function(){
+    let catMap = { cpns:'CPNS/PPPK', kepangkatan:'Kepangkatan', diklat:'Pendidikan & Latihan', mutasi:'Mutasi', pensiun:'Pensiun' };
+    
+    function fmtDateSlash(d) {
+      if (!d) return '';
+      const dt = new Date(d + 'T00:00:00');
+      if (isNaN(dt.getTime())) return d;
+      const dd = String(dt.getDate()).padStart(2, '0');
+      const mm = String(dt.getMonth() + 1).padStart(2, '0');
+      const yyyy = dt.getFullYear();
+      return `${dd}/${mm}/${yyyy}`;
+    }
+
+    function renderAnnouncementThumbnail(p) {
+      const imgSrc = p.image || '/uploads/1790256501213-867784642.png';
+      return `
+        <div class="a-card-thumb-wrap" onclick="location.href='pengumuman-detail.html?id=${p.id}'">
+          <img src="${imgSrc}" alt="${p.title}" class="a-card-thumb-img">
+        </div>`;
+    }
+    
+    fetch(API_BASE + '/api/pengumuman-categories')
+      .then(res => res.json())
+      .then(cats => {
+        if (cats && cats.length) {
+          cats.forEach(c => { catMap[c.id] = c.name; });
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        fetch(API_BASE + '/api/pengumuman')
+          .then(res => res.json())
+          .then(data => {
+            const published = (data || []).filter(p => p.status === 'terbit').slice(0, 3);
+            const grid = document.getElementById('homeAnnounceGrid');
+            if (!grid) return;
+            if (!published.length) {
+              grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:20px;color:#999;">Tidak ada pengumuman terbaru.</div>';
+              return;
+            }
+            grid.innerHTML = published.map(p => {
+              const isUrgent = p.urgent === 'urgent';
+              const thumbHtml = renderAnnouncementThumbnail(p);
+
+              return `<div class="a-card${isUrgent ? ' is-urgent' : ''}">
+                ${thumbHtml}
+                <div class="a-card-info">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                    <span class="a-cat${isUrgent ? ' urgent' : ''}">${isUrgent ? 'PENTING — ' : ''}${catMap[p.cat] || p.cat}</span>
+                  </div>
+                  <div class="a-card-date">${fmtDateSlash(p.date)}</div>
+                  <h3 class="a-card-title" onclick="location.href='pengumuman-detail.html?id=${p.id}'">${p.title}</h3>
+                  <div>
+                    <a class="a-card-readmore" href="pengumuman-detail.html?id=${p.id}">Selengkapnya <i class="fa-solid fa-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div>`;
+            }).join('');
+          })
+          .catch(err => {
+            console.error("Error loading home announcements:", err);
+          });
+      });
+  })();
+
+
+
+  // ===== Hero Slider — membaca dari localStorage (dikelola admin.html) =====
+  const SKEY_SLIDES = 'sipadu_hero_slides';
+  const DEFAULT_SLIDES = [
+    { eyebrow: 'PEMERINTAH KOTA DUMAI · BADAN KEPEGAWAIAN & PSDM',
+      title: 'Satu pintu untuk <em>pengumuman</em> dan <em>layanan kepegawaian</em> ASN Kota Dumai',
+      lead: 'SIKAP (Sistem Informasi Kepegawaian dan Administrasi Pegawai) Kota Dumai merupakan pusat informasi terpadu yang memfasilitasi pegawai dan masyarakat dalam mengakses layanan, data, serta informasi kepegawaian secara cepat, akurat, dan transparan.',
+      btn1Label:'Lihat Pengumuman', btn1Href:'pengumuman.html',
+      btn2Label:'Informasi Layanan', btn2Href:'layanan.html', bgImage:'/uploads/gedung-bkpsdm.jpg' },
+    { eyebrow: 'PENERIMAAN CPNS & PPPK 2026',
+      title: 'Pantau setiap tahap <em>seleksi CASN</em> tanpa ketinggalan jadwal',
+      lead: 'Hasil seleksi administrasi, jadwal SKD, hingga pengumuman kelulusan tersedia real-time di papan pengumuman digital SIKAP.',
+      btn1Label:'Cek Hasil Seleksi', btn1Href:'pengumuman.html',
+      btn2Label:'Syarat Pendaftaran', btn2Href:'pengumuman.html', bgImage:'' },
+    { eyebrow: 'LAYANAN KEPEGAWAIAN LURING',
+      title: 'Prosedur <em>layanan fisik</em> transparan dan terarah',
+      lead: 'Pelajari persyaratan dokumen dan unduh formulir sebelum datang ke loket pelayanan kantor BKPSDM Kota Dumai.',
+      btn1Label:'Informasi Layanan', btn1Href:'layanan.html',
+      btn2Label:'Prosedur Pengajuan', btn2Href:'alur.html', bgImage:'' },
+    { eyebrow: 'PENGEMBANGAN KOMPETENSI ASN',
+      title: 'Ikuti <em>diklat</em> dan program pengembangan karir ASN',
+      lead: 'Informasi pendaftaran diklat kepemimpinan, pelatihan teknis, dan program pengembangan kompetensi diperbarui setiap hari kerja.',
+      btn1Label:'Lihat Jadwal Diklat', btn1Href:'pengumuman.html',
+      btn2Label:'Kontak BKPSDM', btn2Href:'kontak.html', bgImage:'' }
+  ];
+
+  let heroSlidesData = DEFAULT_SLIDES;
+
+  const heroBg = document.getElementById('heroBg');
+  const heroContent = document.getElementById('heroContent');
+  const heroEyebrow = document.getElementById('heroEyebrow');
+  const heroTitle = document.getElementById('heroTitle');
+  const heroLead = document.getElementById('heroLead');
+  const heroCta = document.getElementById('heroCta');
+  const heroDots = document.getElementById('heroDots');
+  let currentSlide = 0;
+  let heroTimer;
+  let slideEls, dotEls;
+
+  function buildSliderDOM() {
+    // Rebuild background slides
+    heroBg.innerHTML = heroSlidesData.map((s, i) => {
+      const bgStyle = s.bgImage
+        ? `background-image:linear-gradient(100deg, rgba(10,25,45,0.45) 0%, rgba(10,25,45,0.25) 45%, rgba(18,40,70,0.1) 75%, transparent 100%), url('${s.bgImage}');background-size:cover;background-position:center 25%;background-repeat:no-repeat;`
+        : '';
+      const artClass = `slide-art-${(i % 4) + 1}${s.bgImage ? ' has-custom-bg' : ''}`;
+      return `<div class="hero-slide${i===0?' active':''}" data-slide="${i}">`
+        + `<div class="hero-slide-art ${artClass}" style="${bgStyle}"></div></div>`;
+    }).join('');
+    // Rebuild dots
+    heroDots.innerHTML = heroSlidesData.map((s, i) =>
+      `<button class="${i===0?'active':''}" data-slide="${i}" aria-label="Slide ${i+1}"></button>`
+    ).join('');
+    slideEls = heroBg.querySelectorAll('.hero-slide');
+    dotEls = heroDots.querySelectorAll('button');
+    dotEls.forEach(dot => {
+      dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.slide)); resetAutoplay(); });
+    });
+  }
+
+  function renderSlide(index) {
+    const data = heroSlidesData[index];
+    heroContent.classList.add('switching');
+    setTimeout(() => {
+      // Eyebrow: tampilkan hanya jika ada isi
+      if (data.eyebrow && data.eyebrow.trim()) {
+        heroEyebrow.textContent = data.eyebrow;
+        heroEyebrow.style.display = '';
+      } else {
+        heroEyebrow.textContent = '';
+        heroEyebrow.style.display = 'none';
+      }
+      // Title: tampilkan hanya jika ada isi
+      if (data.title && data.title.trim()) {
+        heroTitle.innerHTML = data.title;
+        heroTitle.style.display = '';
+      } else {
+        heroTitle.innerHTML = '';
+        heroTitle.style.display = 'none';
+      }
+      // Lead: tampilkan hanya jika ada isi
+      let cleanLead = (data.lead || '').replace(/SIPADU/gi, 'SIKAP').replace(/SIKAP\s+SIKAP/gi, 'SIKAP');
+      if (cleanLead.trim()) {
+        heroLead.textContent = cleanLead;
+        heroLead.style.display = '';
+      } else {
+        heroLead.textContent = '';
+        heroLead.style.display = 'none';
+      }
+      if (heroCta) heroCta.innerHTML = '';
+      heroContent.classList.remove('switching');
+    }, 220);
+  }
+
+  function goToSlide(index) {
+    slideEls.forEach(s => s.classList.remove('active'));
+    dotEls.forEach(d => d.classList.remove('active'));
+    if (slideEls[index]) slideEls[index].classList.add('active');
+    if (dotEls[index]) dotEls[index].classList.add('active');
+    renderSlide(index);
+    currentSlide = index;
+  }
+  function nextSlide() { goToSlide((currentSlide + 1) % heroSlidesData.length); }
+  function prevSlide() { goToSlide((currentSlide - 1 + heroSlidesData.length) % heroSlidesData.length); }
+  function startAutoplay() { heroTimer = setInterval(nextSlide, 10000); }
+  function resetAutoplay() { clearInterval(heroTimer); startAutoplay(); }
+
+  document.getElementById('heroNext').addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+  document.getElementById('heroPrev').addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+  document.querySelector('.hero').addEventListener('mouseenter', () => clearInterval(heroTimer));
+  document.querySelector('.hero').addEventListener('mouseleave', () => { startAutoplay(); });
+
+  function fetchSlides() {
+    fetch(API_BASE + '/api/slides')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.length) {
+          heroSlidesData = data;
+        } else {
+          heroSlidesData = DEFAULT_SLIDES;
+        }
+        buildSliderDOM();
+        renderSlide(0);
+        resetAutoplay();
+      })
+      .catch(err => {
+        console.error("Error loading slides:", err);
+        heroSlidesData = DEFAULT_SLIDES;
+        buildSliderDOM();
+        renderSlide(0);
+        resetAutoplay();
+      });
+  }
+  fetchSlides();
+
+  // ===== Visitor Counter REAL — terhubung ke Backend API (Bertambah +1 Setiap Refresh) =====
+  (function(){
+    const el = document.getElementById('visitorCount');
+    if (!el) return;
+    const container = el.closest('.visitor-counter');
+    
+    fetch(API_BASE + '/api/visitor/increment', { method: 'POST' })
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.showCounter === false) {
+          if (container) container.style.display = 'none';
+        } else {
+          if (container) container.style.display = 'inline-flex';
+        }
+        const target = (data && data.count) ? data.count : 47820;
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target).toLocaleString('id-ID');
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toLocaleString('id-ID');
+        }
+        requestAnimationFrame(tick);
+      })
+      .catch(err => {
+        console.error("Error updating visitor count:", err);
+        el.textContent = '47.820'; // Fallback
+      });
+  })();
+</script>
+
+<script>
+  function parseMapSrc(src, alamat) {
+    if (!src || !src.trim()) {
+      const q = encodeURIComponent(alamat || "BKPSDM Kota Dumai Jl Tuanku Tambusai Bagan Besar Dumai");
+      return "https://maps.google.com/maps?q=" + q + "&t=&z=16&ie=UTF8&iwloc=&output=embed";
+    }
+    let s = src.trim();
+    const match = s.match(/src=["']([^"']+)["']/i);
+    if (match && match[1]) s = match[1];
+    if (s.startsWith('http://') || s.startsWith('https://')) return s;
+    const q = encodeURIComponent(s);
+    return "https://maps.google.com/maps?q=" + q + "&t=&z=16&ie=UTF8&iwloc=&output=embed";
+  }
+
+  fetch(API_BASE + '/api/kontak').then(r=>r.json()).then(d=>{
+    if(d.alamat) { const el = document.getElementById('f-alamat'); if(el) el.textContent = d.alamat; }
+    if(d.jam) { const el = document.getElementById('f-jam'); if(el) el.textContent = d.jam; }
+    if(d.telp) { const el = document.getElementById('f-telp'); if(el) el.innerHTML = '<i class="fa-solid fa-phone" style="margin-right:8px;"></i>' + d.telp; }
+    if(d.email) { const el = document.getElementById('f-email'); if(el) el.innerHTML = '<i class="fa-solid fa-envelope" style="margin-right:8px;"></i>' + d.email; }
+    if(d.fb) { const el = document.getElementById('f-fb'); if(el) el.href = d.fb; }
+    if(d.ig) { const el = document.getElementById('f-ig'); if(el) el.href = d.ig; }
+    if(d.yt) { const el = document.getElementById('f-yt'); if(el) el.href = d.yt; }
+    const fMap = document.getElementById('footerMap');
+    if(fMap) { fMap.src = parseMapSrc(d.mapIframeSrc, d.alamat); }
+  }).catch(()=>{});
+</script>
+</body>
+</html>
